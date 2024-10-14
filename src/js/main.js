@@ -9,11 +9,11 @@ const pokemonRow = document.querySelector("[pokemon-row]");
 
 // itreted
 for (let object of data) {
-  const { name, image, description } = object;
-  console.log(name, image, description);
+  const { name, image, description, link } = object;
+  console.log(name, image, description, link);
   const paragraph = document.createElement("p");
   paragraph.textContent = name;
-  pokemonRow.appendChild(pokemon(name, image, description));
+  pokemonRow.appendChild(pokemon(name, image, description, link));
 }
 
 //  ======add "/" key word =====
@@ -25,10 +25,11 @@ document.addEventListener("keyup", (input) => {
   //   console.log(input.key);
 });
 
-function pokemon(name, image, description) {
+function pokemon(name, image, description, link) {
   const div = document.createElement("div");
   div.classList.add("col");
   div.innerHTML = `<div class="card">
+  
     <img
       src="${image}"
       class="card-img-top"
@@ -37,6 +38,7 @@ function pokemon(name, image, description) {
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${description}</p>
+      <a href="${link}" class="btn btn-warning" target="_black" >Read more</a>
     </div>
   </div>`;
 
