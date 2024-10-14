@@ -1,4 +1,5 @@
 import data from "./data.json";
+import PokemonCard from "./components/ PokemonCard";
 
 const inputEl = document.querySelector("#floatingInputGroup1");
 // console.log(inputEl);
@@ -13,7 +14,7 @@ for (let object of data) {
   console.log(name, image, description, link);
   const paragraph = document.createElement("p");
   paragraph.textContent = name;
-  pokemonRow.appendChild(pokemon(name, image, description, link));
+  pokemonRow.appendChild(PokemonCard(name, image, description, link));
 }
 
 //  ======add "/" key word =====
@@ -24,23 +25,3 @@ document.addEventListener("keyup", (input) => {
   }
   //   console.log(input.key);
 });
-
-function pokemon(name, image, description, link) {
-  const div = document.createElement("div");
-  div.classList.add("col");
-  div.innerHTML = `<div class="card">
-  
-    <img
-      src="${image}"
-      class="card-img-top"
-      alt="${name}"
-    />
-    <div class="card-body">
-      <h5 class="card-title">${name}</h5>
-      <p class="card-text">${description}</p>
-      <a href="${link}" class="btn btn-warning" target="_black" >Read more</a>
-    </div>
-  </div>`;
-
-  return div;
-}
