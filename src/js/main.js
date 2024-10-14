@@ -1,14 +1,22 @@
 import data from "./data.json";
 
 const inputEl = document.querySelector("#floatingInputGroup1");
-console.log(inputEl);
+// console.log(inputEl);
 
+const pokemonRow = document.querySelector("[pokemon-row]");
+// console.log(remoteEl);
 // inputEl.focus();
 
-// for (let object of data) {
-//   console.log(object.name);
-// }
+// itreted
+for (let object of data) {
+  const { name } = object;
+  // console.log(name);
+  const paragraph = document.createElement("p");
+  paragraph.textContent = name;
+  pokemonRow.appendChild(paragraph);
+}
 
+//  ======add "/" key word =====
 document.addEventListener("keyup", (input) => {
   if (input.key === "/") {
     // console.log("hey");
