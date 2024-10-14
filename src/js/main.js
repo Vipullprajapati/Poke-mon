@@ -9,11 +9,11 @@ const pokemonRow = document.querySelector("[pokemon-row]");
 
 // itreted
 for (let object of data) {
-  const { name } = object;
+  const { name, image, description } = object;
   // console.log(name);
   const paragraph = document.createElement("p");
   paragraph.textContent = name;
-  pokemonRow.appendChild(pokemon());
+  pokemonRow.appendChild(pokemon(name, image, description));
 }
 
 //  ======add "/" key word =====
