@@ -10,7 +10,7 @@ const pokemonRow = document.querySelector("[pokemon-row]");
 // itreted
 for (let object of data) {
   const { name, image, description } = object;
-  // console.log(name);
+  console.log(name, image, description);
   const paragraph = document.createElement("p");
   paragraph.textContent = name;
   pokemonRow.appendChild(pokemon(name, image, description));
@@ -25,22 +25,18 @@ document.addEventListener("keyup", (input) => {
   //   console.log(input.key);
 });
 
-function pokemon() {
+function pokemon(name, image, description) {
   const div = document.createElement("div");
   div.classList.add("col");
   div.innerHTML = `<div class="card">
     <img
-      src="https://placeholder.co/200"
+      src="${image}"
       class="card-img-top"
-      alt="..."
+      alt="${name}"
     />
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        This is a longer card with supporting text below as a natural
-        lead-in to additional content. This content is a little bit
-        longer.
-      </p>
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text">${description}</p>
     </div>
   </div>`;
 
