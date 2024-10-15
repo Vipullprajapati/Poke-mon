@@ -32,11 +32,25 @@ renderPokemon(data);
 inputEl.addEventListener("input", (e) => {
   // console.log(e.target.value);
   const currInput = e.target.value.toLowerCase().trim();
-  console.log(currInput, data);
+  // console.log(currInput, data);
 
   const filterPokemon = data.filter((object) =>
     object.name.toLocaleLowerCase().includes(currInput)
   );
+
+  if (filterPokemon.length === 0) {
+    renderPokemon([
+      {
+        name: "not found",
+        image:
+          "https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png",
+        description: "Bhai kuch our type kar",
+        link: "",
+      },
+    ]);
+    return;
+  }
+
   renderPokemon(filterPokemon);
 });
 
