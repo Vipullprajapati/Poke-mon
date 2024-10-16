@@ -1,10 +1,10 @@
 import { shuffle } from "fast-shuffle";
+import Fuse from "fuse.js";
 
 import data from "./data.json";
 import PokemonCard from "./components/ PokemonCard";
 
 const inputEl = document.querySelector("#floatingInputGroup1");
-
 const pokemonRow = document.querySelector("[pokemon-row]");
 
 // ===render
@@ -18,16 +18,19 @@ function renderPokemon(list) {
   });
 }
 
+// filtering
+function renderFilterPokemons(input) {
+  if (input === "") {
+    return renderPokemon(data);
+  }
 
-// filter functionality
-inputEl.addEventListener("input", (e) => {
-  const currInput = e.target.value.toLowerCase().trim();
+  const fuse = new Fuse(data, {
+    keys: ["name"],
+  });
+  
+  const filterPokemons = fuse.search(input).map((object) => object.item);
 
-  const filterPokemon = data.filter((object) =>
-    object.name.toLocaleLowerCase().includes(currInput)
-  );
-
-  if (filterPokemon.length === 0) {
+  if (filterPokemons.length === 0) {
     renderPokemon([
       {
         name: "not found",
@@ -40,7 +43,13 @@ inputEl.addEventListener("input", (e) => {
     return;
   }
 
-  renderPokemon(filterPokemon);
+  renderPokemon(filterPokemons);
+}
+
+// ==== add listener
+inputEl.addEventListener("input", (e) => {
+  const currInput = e.target.value.toLowerCase().trim();
+  renderFilterPokemons(currInput);
 });
 
 //  ======add "/" key word =====
@@ -49,5 +58,6 @@ document.addEventListener("keyup", (input) => {
     inputEl.focus();
   }
 });
+
 // ===shuffle data
 renderPokemon(shuffle(data));
