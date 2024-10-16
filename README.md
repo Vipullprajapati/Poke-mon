@@ -19,3 +19,5 @@ bootstrap ka navbar
 public/
 
 common js modules (require & module.exports) import and export statements type: 'module'
+
+shuffle install - npm install fast-shuffle
