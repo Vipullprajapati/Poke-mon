@@ -1,3 +1,5 @@
+import { shuffle } from "fast-shuffle";
+
 import data from "./data.json";
 import PokemonCard from "./components/ PokemonCard";
 
@@ -17,7 +19,7 @@ function renderPokemon(list) {
     pokemonRow.appendChild(pokemon);
   }
 }
-renderPokemon(data);
+renderPokemon(shuffle (data));
 
 // itreted
 // for (let object of data) {
