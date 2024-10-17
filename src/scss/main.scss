@@ -1,0 +1,14 @@
+.card {
+  height: 100%;
+  transition: 5s all ease;
+
+  &:hover {
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 29%,
+      rgba(253, 187, 45, 1) 98%
+    );
+    transition: scale(1.05);
+  }
+}

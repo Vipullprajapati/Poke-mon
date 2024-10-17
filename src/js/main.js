@@ -25,9 +25,9 @@ function renderFilterPokemons(input) {
   }
 
   const fuse = new Fuse(data, {
-    keys: ["name"],
+    keys: ["name", "abilities"],
   });
-  
+
   const filterPokemons = fuse.search(input).map((object) => object.item);
 
   if (filterPokemons.length === 0) {
