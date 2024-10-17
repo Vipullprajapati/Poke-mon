@@ -6,7 +6,7 @@ export default function (name, image, description, link) {
       
         <img
           src="${image}"
-          class="card-img-top"
+          class="card-img-top "
           alt="${name}"
         />
         <div class="card-body">

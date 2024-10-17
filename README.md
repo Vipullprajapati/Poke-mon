@@ -20,6 +20,6 @@ public/
 
 common js modules (require & module.exports) import and export statements type: 'module'
 
-shuffle install - npm install fast-shuffle
+shuffle install - npm install fast-shuffle (for close matching search)
 
 fuse install - npm install fuse.js
