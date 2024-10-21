@@ -11,11 +11,14 @@ const pokemonRow = document.querySelector("[pokemon-row]");
 function renderPokemon(list) {
   pokemonRow.innerHTML = "";
 
+  const fragment = document.createDocumentFragment();
+
   list.forEach((PokemonObj) => {
     const { name, image, description, link } = PokemonObj;
     const pokemon = PokemonCard(name, image, description, link);
-    pokemonRow.appendChild(pokemon);
+    fragment.appendChild(pokemon);
   });
+  pokemonRow.appendChild(fragment);
 }
 
 // filtering
