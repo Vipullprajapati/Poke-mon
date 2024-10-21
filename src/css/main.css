@@ -1,3 +1,12 @@
+body {
+  background: rgb(37, 165, 210);
+  background: linear-gradient(
+    0deg,
+    rgba(37, 165, 210, 1) 11%,
+    rgba(34, 193, 195, 1) 37%,
+    rgba(253, 114, 45, 1) 92%
+  );
+}
 .card {
   height: 100%;
   transition: 5s all ease;
