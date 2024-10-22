@@ -11,6 +11,7 @@ const pokemonRow = document.querySelector("[pokemon-row]");
 function renderPokemon(list) {
   pokemonRow.innerHTML = "";
 
+  // `using fragment`
   const fragment = document.createDocumentFragment();
 
   list.forEach((PokemonObj) => {
@@ -51,9 +52,13 @@ function renderFilterPokemons(input) {
 }
 
 // ==== add listener
+let debounceTime;
 inputEl.addEventListener("input", (e) => {
-  const currInput = e.target.value.toLowerCase().trim();
-  renderFilterPokemons(currInput);
+  clearTimeout(debounceTime);
+  debounceTime = setTimeout(() => {
+    const currInput = e.target.value.toLowerCase().trim();
+    renderFilterPokemons(currInput);
+  }, 300);
 });
 
 //  ======add "/" key word =====
